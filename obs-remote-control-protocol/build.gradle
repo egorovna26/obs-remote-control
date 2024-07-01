@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+java {
+    sourceCompatibility = '1.8'
+}
+
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':obs-remote-control')
+
+    implementation 'com.squareup:javapoet:1.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
+    implementation 'com.google.guava:guava:33.2.1-jre'
+    implementation 'org.projectlombok:lombok:1.18.34'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    testCompileOnly 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,8 @@
+allprojects {
+    group = 'com.github.egorovna26.obs-remote-control'
+    version = '0.0.1'
+}
+
+rootProject.tasks.register('version') {
+    new File(rootDir, "version").text = version
+}

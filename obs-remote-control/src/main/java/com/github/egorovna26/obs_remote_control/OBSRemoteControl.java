@@ -6,6 +6,7 @@ import com.github.egorovna26.obs_remote_control.message.event.Event;
 import lombok.CustomLog;
 import lombok.Getter;
 import lombok.Setter;
+import okhttp3.OkHttpClient;
 
 import java.util.function.Consumer;
 
@@ -19,6 +20,10 @@ public class OBSRemoteControl extends OBSRemoteControlBase {
 
     public void setLogger(Logger logger) {
         LoggerFactory.setLogger(logger);
+    }
+
+    public void setOkHttpClient(OkHttpClient okHttpClient) {
+        session.setOkHttpClient(okHttpClient);
     }
 
     public void connect() {

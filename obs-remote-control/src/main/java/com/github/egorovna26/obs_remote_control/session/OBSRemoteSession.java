@@ -34,7 +34,7 @@ import static com.github.egorovna26.obs_remote_control.message.Message.*;
 public class OBSRemoteSession extends WebSocketListener {
     private final Map<Class<? extends Event>, List<Consumer>> eventListeners = new ConcurrentHashMap<>();
     private final Map<UUID, Consumer> requestResponseListeners = new ConcurrentHashMap<>();
-    private final OkHttpClient okHttpClient;
+    private OkHttpClient okHttpClient;
     private boolean debug = false;
     private boolean autoReconnect = false;
     private String host;

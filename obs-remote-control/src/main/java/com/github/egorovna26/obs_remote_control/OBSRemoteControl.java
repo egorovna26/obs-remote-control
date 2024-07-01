@@ -35,6 +35,10 @@ public class OBSRemoteControl extends OBSRemoteControlBase {
         session.shutdown();
     }
 
+    public void setOnReady(Runnable onReady){
+        session.setOnReady(onReady);
+    }
+
     public <T extends Event> void addEventListener(Class<T> cls, Consumer<T> listener) {
         session.addEventListener(cls, listener);
     }

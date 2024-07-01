@@ -42,6 +42,7 @@ public class OBSRemoteSession extends WebSocketListener {
     private String password;
     private boolean reconnection = false;
     private WebSocket webSocket;
+    private Runnable onReady;
 
     public OBSRemoteSession() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(log::info);
@@ -184,6 +185,9 @@ public class OBSRemoteSession extends WebSocketListener {
 
     private void onIdentified(Identified identified) {
         log.info(identified.toString());
+        if (onReady != null) {
+            onReady.run();
+        }
     }
 
     private void onEvent(Event event) {

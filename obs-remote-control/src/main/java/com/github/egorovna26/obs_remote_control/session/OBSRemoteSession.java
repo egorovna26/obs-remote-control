@@ -35,8 +35,6 @@ public class OBSRemoteSession extends WebSocketListener {
     private final Map<Class<? extends Event>, List<Consumer>> eventListeners = new ConcurrentHashMap<>();
     private final Map<UUID, Consumer> requestResponseListeners = new ConcurrentHashMap<>();
     private OkHttpClient okHttpClient;
-    private boolean debug = false;
-    private boolean autoReconnect = false;
     private String host;
     private int port;
     private String password;
@@ -58,9 +56,7 @@ public class OBSRemoteSession extends WebSocketListener {
         this.password = password;
         this.webSocket = okHttpClient.newWebSocket(new Request.Builder().url("ws://" + host + ":" + port + "/").build(), this);
         okHttpClient.connectionPool().evictAll();
-        if (isAutoReconnect()) {
-            this.reconnection = true;
-        }
+        this.reconnection = true;
     }
 
     public void disconnect() {

@@ -37,6 +37,6 @@ dependencies {
 
     implementation 'org.apache.commons:commons-lang3:3.18.0'
 
-    compileOnly 'org.projectlombok:lombok:1.18.32'
-    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    compileOnly "org.projectlombok:lombok:1.18.38"
+    annotationProcessor "org.projectlombok:lombok:1.18.38"
 }

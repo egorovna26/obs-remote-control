@@ -2,9 +2,13 @@ package com.github.egorovna26.obs_remote_control.message.event.ui;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.egorovna26.obs_remote_control.message.event.Event;
-import lombok.*;
-
 import java.io.Serializable;
+import java.lang.String;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * A screenshot has been saved.

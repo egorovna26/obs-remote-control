@@ -41,6 +41,8 @@ import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputA
 import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputAudioSyncOffsetRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputAudioTracksRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputDefaultSettingsRequest;
+import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputDeinterlaceFieldOrderRequest;
+import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputDeinterlaceModeRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputKindListRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputListRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.GetInputMuteRequest;
@@ -54,6 +56,8 @@ import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputA
 import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputAudioMonitorTypeRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputAudioSyncOffsetRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputAudioTracksRequest;
+import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputDeinterlaceFieldOrderRequest;
+import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputDeinterlaceModeRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputMuteRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputNameRequest;
 import com.github.egorovna26.obs_remote_control.message.request.inputs.SetInputSettingsRequest;
@@ -184,6 +188,8 @@ import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.G
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputAudioSyncOffsetResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputAudioTracksResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputDefaultSettingsResponse;
+import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputDeinterlaceFieldOrderResponse;
+import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputDeinterlaceModeResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputKindListResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputListResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.GetInputMuteResponse;
@@ -197,6 +203,8 @@ import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.S
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputAudioMonitorTypeResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputAudioSyncOffsetResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputAudioTracksResponse;
+import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputDeinterlaceFieldOrderResponse;
+import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputDeinterlaceModeResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputMuteResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputNameResponse;
 import com.github.egorovna26.obs_remote_control.message.requestresponse.inputs.SetInputSettingsResponse;
@@ -615,6 +623,51 @@ public enum RequestType implements Serializable {
      * Sets the enable state of audio tracks of an input.
      */
     SET_INPUT_AUDIO_TRACKS("SetInputAudioTracks", SetInputAudioTracksRequest.class, SetInputAudioTracksResponse.class),
+
+    /**
+     * Gets the deinterlace mode of an input.
+     *
+     * Deinterlace Modes:
+     *
+     * - `OBS_DEINTERLACE_MODE_DISABLE`
+     * - `OBS_DEINTERLACE_MODE_DISCARD`
+     * - `OBS_DEINTERLACE_MODE_RETRO`
+     * - `OBS_DEINTERLACE_MODE_BLEND`
+     * - `OBS_DEINTERLACE_MODE_BLEND_2X`
+     * - `OBS_DEINTERLACE_MODE_LINEAR`
+     * - `OBS_DEINTERLACE_MODE_LINEAR_2X`
+     * - `OBS_DEINTERLACE_MODE_YADIF`
+     * - `OBS_DEINTERLACE_MODE_YADIF_2X`
+     *
+     * Note: Deinterlacing functionality is restricted to async inputs only.
+     */
+    GET_INPUT_DEINTERLACE_MODE("GetInputDeinterlaceMode", GetInputDeinterlaceModeRequest.class, GetInputDeinterlaceModeResponse.class),
+
+    /**
+     * Sets the deinterlace mode of an input.
+     *
+     * Note: Deinterlacing functionality is restricted to async inputs only.
+     */
+    SET_INPUT_DEINTERLACE_MODE("SetInputDeinterlaceMode", SetInputDeinterlaceModeRequest.class, SetInputDeinterlaceModeResponse.class),
+
+    /**
+     * Gets the deinterlace field order of an input.
+     *
+     * Deinterlace Field Orders:
+     *
+     * - `OBS_DEINTERLACE_FIELD_ORDER_TOP`
+     * - `OBS_DEINTERLACE_FIELD_ORDER_BOTTOM`
+     *
+     * Note: Deinterlacing functionality is restricted to async inputs only.
+     */
+    GET_INPUT_DEINTERLACE_FIELD_ORDER("GetInputDeinterlaceFieldOrder", GetInputDeinterlaceFieldOrderRequest.class, GetInputDeinterlaceFieldOrderResponse.class),
+
+    /**
+     * Sets the deinterlace field order of an input.
+     *
+     * Note: Deinterlacing functionality is restricted to async inputs only.
+     */
+    SET_INPUT_DEINTERLACE_FIELD_ORDER("SetInputDeinterlaceFieldOrder", SetInputDeinterlaceFieldOrderRequest.class, SetInputDeinterlaceFieldOrderResponse.class),
 
     /**
      * Gets the items of a list property from an input's properties.

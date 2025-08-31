@@ -1,5 +1,3 @@
 include 'obs-remote-control'
-include 'obs-remote-control-spting-boot-starter'
 include 'obs-remote-control-protocol'
 include 'obs-remote-control-example'
-

@@ -50,6 +50,13 @@ public class InputCreated extends Event<InputCreated.Data> {
     }
 
     /**
+     * @return Bitflag value for the caps that an input supports. See obs_source_info.output_flags in the libobs docs
+     */
+    public int getInputKindCaps() {
+        return getData().getEventData().getInputKindCaps();
+    }
+
+    /**
      * @return The settings configured to the input when it was created
      */
     public Object getInputSettings() {
@@ -97,6 +104,12 @@ public class InputCreated extends Event<InputCreated.Data> {
          */
         @JsonProperty("unversionedInputKind")
         private String unversionedInputKind;
+
+        /**
+         * Bitflag value for the caps that an input supports. See obs_source_info.output_flags in the libobs docs
+         */
+        @JsonProperty("inputKindCaps")
+        private int inputKindCaps;
 
         /**
          * The settings configured to the input when it was created
